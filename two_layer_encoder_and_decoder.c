@@ -231,6 +231,13 @@ const unsigned char* seven_comma_four_hamming_decoder(const unsigned char* binar
 			decoder_output[2] = '1';
 		break;
 
+	case 11:																			//r4 bit error, we use integer, so MSB 0 is discarded
+		if (decoder_output[3] == '1')
+			decoder_output[3] = '0';
+		else if (decoder_output[3] == '0')
+			decoder_output[3] = '1';
+		break;
+			
 	default:																			//other cases are out of scope, since the real data in clear
 		break;
 	}
