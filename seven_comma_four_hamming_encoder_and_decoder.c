@@ -79,7 +79,7 @@ const unsigned char* seven_comma_four_hamming_decoder(const unsigned char* binar
 	for (int iter = 0; iter < 3; iter++)
 	{
 		for (int jter = 0; jter < 7; jter++)
-			if ((parity_check_matrix[iter][jter] == '1') && (binary_data[jter] == 1))
+			if ((parity_check_matrix[iter][jter] == '1') && (binary_data[jter] == '1'))
 				parity_bit[iter] += 1;
 		
 		parity_bit[iter] = parity_bit[iter] % 2;
@@ -97,20 +97,24 @@ const unsigned char* seven_comma_four_hamming_decoder(const unsigned char* binar
 			decoder_output[0] = '0';
 		else if (decoder_output[0] == '0')
 			decoder_output[0] = '1';
+		break;
 
 	case 110:																			//r2 bit error
 		if (decoder_output[1] == '1')
 			decoder_output[1] = '0';
 		else if (decoder_output[1] == '0')
 			decoder_output[1] = '1';
+		break;
 
 	case 111:																			//r3 bit error
 		if (decoder_output[2] == '1')
 			decoder_output[2] = '0';
 		else if (decoder_output[2] == '0')
 			decoder_output[2] = '1';
+		break;
 
-	default:;																			//other cases are out of scope, since the real data in clear
+	default:																			//other cases are out of scope, since the real data in clear
+		break;
 	}
 
 	return decoder_output;
