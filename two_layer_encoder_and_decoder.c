@@ -198,7 +198,7 @@ const unsigned char* seven_comma_four_hamming_decoder(const unsigned char* binar
 	{
 		for (int jter = 0; jter < 7; jter++)
 		{
-			if ((parity_check_matrix[iter][jter] & binary_data[jter]) == 1)
+			if ((parity_check_matrix[iter][jter] && binary_data[jter]) == 1)
 				parity_bit[iter] += 1;
 		}
 
