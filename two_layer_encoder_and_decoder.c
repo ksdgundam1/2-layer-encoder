@@ -97,7 +97,7 @@ const unsigned char* crc_encoder(const unsigned char* binary_data)
 {
 	static unsigned char encoded_data[25];
 
-	unsigned char divisor[10] = { '1', '0', '0', '0', '0', '0', '1', '1', '1', NULL };	//save divisor
+	const unsigned char divisor[10] = { '1', '0', '0', '0', '0', '0', '1', '1', '1', NULL };	//save divisor
 
 	for (int iter = 0; iter < 16; iter++)												//upper k bits of crc_output is same as input data
 		encoded_data[iter] = binary_data[iter];
@@ -129,7 +129,7 @@ const unsigned char* seven_comma_four_hamming_encoder(const unsigned char* binar
 	static unsigned char encoded_data[8];												//return value
 	unsigned char s_encoded_data[8] = { "0000000" };									//temporal data to calculate
 
-	unsigned char generator[4][8] = { "1000101", "0100110", "0010111", "0001011" };		//generator matrix to calculate codeword
+	const unsigned char generator[4][8] = { "1000101", "0100110", "0010111", "0001011" };		//generator matrix to calculate codeword
 
 	for (int iter = 0; iter < 4; iter++)
 	{
@@ -156,7 +156,7 @@ const unsigned char* crc_decoder(const unsigned char* binary_data)
 	static unsigned char decoded_data[17];
 	unsigned char* temporal = binary_data;
 
-	unsigned char divisor[10] = { '1', '0', '0', '0', '0', '0', '1', '1', '1', NULL };	//save divisor
+	const unsigned char divisor[10] = { '1', '0', '0', '0', '0', '0', '1', '1', '1', NULL };	//save divisor
 
 	for (int iter = 0; iter < 16; iter++)												//upper k bits of input data is real 'data'
 		decoded_data[iter] = binary_data[iter];
