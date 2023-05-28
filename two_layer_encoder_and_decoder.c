@@ -87,6 +87,7 @@ int main()
 			printf("%s", crc_output);
 
 		bin_data[0] = NULL;														//initialize character array
+		bin_encoded_data[0] = NULL;
 		printf("\n\n============================================================\n\n");
 	}
 
